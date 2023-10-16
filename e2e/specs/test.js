@@ -7,6 +7,13 @@ describe('Hudl Login Functionality Automated Coverage', () => {
         await expect(browser).toHaveTitle('Log In')
       });
 
+    it('Login with empty input fields test', async () => {
+        const continueButton = await $('#logIn')
+        const loginWithEmptyInputFieldsMessage =  await $("//p[contains(text(),'required fields')]")
+        await continueButton.click()
+        await loginWithEmptyInputFieldsMessage.waitForDisplayed()
+    })
+
     it('Incorrect password test', async () => {
         const email = await $('#email')
         const password = await $('#password')
