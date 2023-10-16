@@ -1,7 +1,7 @@
 
 describe('Hudl Login Functionality Automated Coverage', () => {
 
-     beforeEach(async () => {
+    beforeEach(async () => {
         // runs before each test in this block
         await browser.url('https://identity.hudl.com/login?state=hKFo2SBrS2lyVXIweHJlNmtRa1FVajZNWXY5NEMzTWo3ejVMdaFupWxvZ2luo3RpZNkgQ2x6cHdFenI2TE84ZS00N0hWc29tLUJnQVBaSzBvammjY2lk2SBuMTNSZmtIektvemFOeFdDNWRaUW9iZVdHZjRXalNuNQ&client=n13RfkHzKozaNxWC5dZQobeWGf4WjSn5&protocol=oauth2&response_type=id_token&redirect_uri=https%3A%2F%2Fwww.hudl.com%2Fapp%2Fusers%2Foidc%2Fcallback&scope=openid%20profile%20email&nonce=kPK6SiJGba418NtYzBVjNgz2a1d3cYVtsnygAREuJsY%3D&response_mode=form_post&screen_hint=')
         await expect(browser).toHaveTitle('Log In')
@@ -38,6 +38,24 @@ describe('Hudl Login Functionality Automated Coverage', () => {
         await expect(browser).toHaveTitle('Sign Up')
         await createAccountButton.click()
         await createAccountErrorMessage.waitForDisplayed()
+    })
+
+    it('Login with Facebook test', async () => {
+        const facebookLoginButton = await $('#btn-facebook-login')
+        await facebookLoginButton.click()
+        await expect(browser).toHaveTitle('Log in to Facebook | Facebook')
+    })
+
+    it('Login with Google test', async () => {
+        const googleLoginButton = await $('#btn-google-login')
+        await googleLoginButton.click()
+        await expect(browser).toHaveTitle('Sign in - Google Accounts')
+    })
+
+    it('Login with Apple test', async () => {
+        const appleLoginButton = await $('#btn-apple-login')
+        await appleLoginButton.click()
+        await expect(browser).toHaveUrlContaining('apple')
     })
 
     
