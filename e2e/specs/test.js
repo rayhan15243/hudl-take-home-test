@@ -90,6 +90,16 @@ describe('Hudl Login Functionality Automated Coverage', () => {
         await expect(browser).toHaveTitle('Hudl Privacy Policy')
     })
 
+    it('Succesful login test', async () => {
+        const email = await $('#email')
+        const password = await $('#password')
+        const continueButton = await $('#logIn')
+        await email.addValue('rayhan15243@gmail.com')
+		await password.addValue(process.env.PASSWORD)
+        await continueButton.click()
+        await expect(browser).toHaveTitle('Home - Hudl')
+    })
+
 
 
     
