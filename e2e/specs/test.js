@@ -18,6 +18,17 @@ describe('Hudl Login Functionality Automated Coverage', () => {
         await invalidLogin.waitForDisplayed()
     })
 
+    it('Expired password test', async () => {
+        const email = await $('#email')
+        const password = await $('#password')
+        const continueButton = await $('#logIn')
+        const expiredPasswordMessage = await $("//p[contains(text(),'Password change required')]")
+        await email.addValue('test@test.com')
+		await password.addValue('test')
+        await continueButton.click()
+        await expiredPasswordMessage.waitForDisplayed()
+    })
+
     it('Forgot password test', async () => {
         const forgotPasswordLink = await $('#forgot-password')
         const emailResetBox = await $('#email-reset')
@@ -30,7 +41,7 @@ describe('Hudl Login Functionality Automated Coverage', () => {
         await forgotPasswordMessage.waitForDisplayed()
     })
 
-    it('Create account test', async () => {
+    it('Create account test (fill in required fields)', async () => {
         const createAccountLink = await $('#btn-show-signup')
         const createAccountButton = await $('#btn-signup')
         const createAccountErrorMessage =  await $("//p[contains(text(),'required fields')]")
@@ -61,12 +72,14 @@ describe('Hudl Login Functionality Automated Coverage', () => {
     it('Hudl site terms test', async () => {
         const siteTermsLink = await $('#site-terms')
         await siteTermsLink.click()
+        await browser.switchWindow('Hudl Site Terms')
         await expect(browser).toHaveTitle('Hudl Site Terms')
     })
 
     it('Hudl privacy policy test', async () => {
         const privacyPolicyLink = await $('#privacy-policy')
         await privacyPolicyLink.click()
+        await browser.switchWindow('Hudl Privacy Policy');
         await expect(browser).toHaveTitle('Hudl Privacy Policy')
     })
 
