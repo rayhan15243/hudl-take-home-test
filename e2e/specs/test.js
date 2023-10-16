@@ -58,5 +58,19 @@ describe('Hudl Login Functionality Automated Coverage', () => {
         await expect(browser).toHaveUrlContaining('apple')
     })
 
+    it('Hudl site terms test', async () => {
+        const siteTermsLink = await $('#site-terms')
+        await siteTermsLink.click()
+        await expect(browser).toHaveTitle('Hudl Site Terms')
+    })
+
+    it('Hudl privacy policy test', async () => {
+        const privacyPolicyLink = await $('#privacy-policy')
+        await privacyPolicyLink.click()
+        await expect(browser).toHaveTitle('Hudl Privacy Policy')
+    })
+
+
+
     
 })
