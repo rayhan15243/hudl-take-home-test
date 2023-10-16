@@ -1,5 +1,5 @@
 
-describe('Hudl Login Functionality Automated Test', () => {
+describe('Hudl Login Functionality Test', () => {
 
     beforeEach(async () => {
         // runs before each test in this describe block
@@ -99,8 +99,5 @@ describe('Hudl Login Functionality Automated Test', () => {
         await continueButton.click()
         await expect(browser).toHaveTitle('Home - Hudl')
     })
-
-
-
     
 })
