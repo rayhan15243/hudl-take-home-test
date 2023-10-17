@@ -19,7 +19,7 @@ describe('Hudl Login Functionality Test', () => {
 
     it('Incorrect password test', async () => {
         await Login.enterEmailAddress("rayhan15243@gmail.com")
-        await Login.enterPassword()
+        await Login.enterPassword("1234")
         await Login.clickContinueButton()
         await Login.waitForInvalidLoginMessageErrorMessage()
     })
@@ -32,15 +32,11 @@ describe('Hudl Login Functionality Test', () => {
     })
 
     it('Forgot password test', async () => {
-        const forgotPasswordLink = await $('#forgot-password')
-        const emailResetBox = await $('#email-reset')
-        const resetPasswordButton = await $('#btn-reset')
-        const forgotPasswordMessage =  await $("//p[contains(text(),'reset password link')]")
-        await forgotPasswordLink.click()
-        await expect(browser).toHaveTitle('Forgot Password')
-        await emailResetBox.addValue('test@test.com')
-        await resetPasswordButton.click()
-        await forgotPasswordMessage.waitForDisplayed()
+        await Login.clickForgotPasswordLink()
+        await expect(browser).toHaveTitle("Forgot Password")
+        await Login.enterEmailReset("test@test.com")
+        await Login.clickResetPasswordButton()
+        await Login.waitForForgotPasswordMessage()
     })
 
     it('Create account test (fill in required fields)', async () => {
@@ -54,20 +50,17 @@ describe('Hudl Login Functionality Test', () => {
     })
 
     it('Login with Facebook test', async () => {
-        const facebookLoginButton = await $('#btn-facebook-login')
-        await facebookLoginButton.click()
+        await ThirdPartyLogin.clickFacebookLoginButton()
         await expect(browser).toHaveTitle('Log in to Facebook | Facebook')
     })
 
     it('Login with Google test', async () => {
-        const googleLoginButton = await $('#btn-google-login')
-        await googleLoginButton.click()
+        await ThirdPartyLogin.clickGoogleLoginButton()
         await expect(browser).toHaveTitle('Sign in - Google Accounts')
     })
 
     it('Login with Apple test', async () => {
-        const appleLoginButton = await $('#btn-apple-login')
-        await appleLoginButton.click()
+        await ThirdPartyLogin.clickAppleLoginButton()
         await expect(browser).toHaveUrlContaining('apple')
     })
 

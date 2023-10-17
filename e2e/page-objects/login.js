@@ -17,13 +17,29 @@ class Login {
     }
 
     get invalidLoginMessage() {
-        return $("//p[contains(text(),'recognize that email and/or password')]");
+      return $("//p[contains(text(),'recognize that email and/or password')]");
     }
 
     get expiredPasswordMessage() {
-        return $("//p[contains(text(),'Password change required')]");
+      return $("//p[contains(text(),'Password change required')]");
     }
-  
+
+    get forgotPasswordLink() {
+      return $("#forgot-password");
+    }
+
+    get emailResetBox() {
+      return $("#email-reset");
+    }
+
+    get resetPasswordButton() {
+      return $("#btn-reset");
+    }
+
+    get forgotPasswordMessage() {
+      return $("//p[contains(text(),'reset password link')]");
+    }
+
     async clickContinueButton() {
       await this.continueButton.click();
     }
@@ -41,11 +57,27 @@ class Login {
     }
 
     async waitForInvalidLoginMessageErrorMessage() {
-        await this.invalidLoginMessage.waitForDisplayed();
+      await this.invalidLoginMessage.waitForDisplayed();
     }
 
     async waitForExpiredErrorMessage() {
-        await this.expiredPasswordMessage.waitForDisplayed();
+      await this.expiredPasswordMessage.waitForDisplayed();
+    }
+
+    async clickForgotPasswordLink() {
+      await this.forgotPasswordLink.click();
+    }
+
+    async enterEmailReset(emailReset) {
+      await this.emailResetBox.addValue(emailReset);
+    }
+
+    async clickResetPasswordButton() {
+      await this.resetPasswordButton.click();
+    }
+
+    async waitForForgotPasswordMessage() {
+      await this.forgotPasswordMessage.waitForDisplayed();
     }
   
   }
