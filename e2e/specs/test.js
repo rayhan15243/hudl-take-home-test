@@ -1,3 +1,8 @@
+const CreateAccount = require("../page-objects/create-account");
+const InternalPages = require("../page-objects/internal-pages");
+const Login = require("../page-objects/login");
+const ThirdPartyLogin  = require("../page-objects/third-party-login");
+
 
 describe('Hudl Login Functionality Test', () => {
 
@@ -5,13 +10,11 @@ describe('Hudl Login Functionality Test', () => {
         // runs before each test in this describe block
         await browser.url('/login?state=hKFo2SBrS2lyVXIweHJlNmtRa1FVajZNWXY5NEMzTWo3ejVMdaFupWxvZ2luo3RpZNkgQ2x6cHdFenI2TE84ZS00N0hWc29tLUJnQVBaSzBvammjY2lk2SBuMTNSZmtIektvemFOeFdDNWRaUW9iZVdHZjRXalNuNQ&client=n13RfkHzKozaNxWC5dZQobeWGf4WjSn5&protocol=oauth2&response_type=id_token&redirect_uri=https%3A%2F%2Fwww.hudl.com%2Fapp%2Fusers%2Foidc%2Fcallback&scope=openid%20profile%20email&nonce=kPK6SiJGba418NtYzBVjNgz2a1d3cYVtsnygAREuJsY%3D&response_mode=form_post&screen_hint=')
         await expect(browser).toHaveTitle('Log In')
-      });
+    });
 
     it('Login with empty input fields test', async () => {
-        const continueButton = await $('#logIn')
-        const loginWithEmptyInputFieldsMessage =  await $("//p[contains(text(),'required fields')]")
-        await continueButton.click()
-        await loginWithEmptyInputFieldsMessage.waitForDisplayed()
+        await Login.clickContinueButton();
+        await Login.waitForEmptyInputFieldsErrorMessage();
     })
 
     it('Incorrect password test', async () => {
