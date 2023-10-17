@@ -71,7 +71,7 @@ describe('Hudl Login Functionality Test', () => {
     it('Hudl privacy policy test', async () => {
         const privacyPolicyLink = await $('#privacy-policy')
         await privacyPolicyLink.click()
-        await browser.switchWindow('Hudl Privacy Policy');
+        await browser.switchWindow('Hudl Privacy Policy')
         await expect(browser).toHaveTitle('Hudl Privacy Policy')
     })
 
