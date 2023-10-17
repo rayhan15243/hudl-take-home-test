@@ -40,13 +40,10 @@ describe('Hudl Login Functionality Test', () => {
     })
 
     it('Create account test (fill in required fields)', async () => {
-        const createAccountLink = await $('#btn-show-signup')
-        const createAccountButton = await $('#btn-signup')
-        const createAccountErrorMessage =  await $("//p[contains(text(),'required fields')]")
-        await createAccountLink.click()
+        await CreateAccount.clickCreateAccountLink()
         await expect(browser).toHaveTitle('Sign Up')
-        await createAccountButton.click()
-        await createAccountErrorMessage.waitForDisplayed()
+        await CreateAccount.clickCreateAccountButton()
+        await CreateAccount.waitForCreateAccountErrorMessage()
     })
 
     it('Login with Facebook test', async () => {
