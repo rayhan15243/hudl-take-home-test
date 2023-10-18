@@ -95,17 +95,19 @@ To run the tests execute the below in the terminal.
 
 Test results will appear in the terminal via the "spec" Reporter.
 
+## Known issues or workarounds you have used
+
+There were issues with the Hudl site terms test and Hudl privacy policy test when implementing the Page Object Model where it was not able to recognise the new tabs using switch window when the test click on those links. Adding the locators within the spec file resolved that issue.
+
+For the Login with actual credentials test, it was not good practise to commit and push up an actual password, so I created an environment variable in the .env file in which the file type is in the .gitignore. In order to get the actual password, the repo user has to contact the repo owner to get the password, so that the repo user can add it to the environment variable. 
+
 ## How I would improve this framework 
 
 I would add a html reporter to make test results more clearer.
 
 I would enable the tests to run in the CI.
 
-## Known issues or workarounds you have used
-
-There were issues with the Hudl site terms test and Hudl privacy policy test when implementing the Page Object model where it was not able to recognise the new tabs using switch window when the test click on those links. Adding the locators within the spec file resolved that issue.
-
-For the Login with actual credentials test, it was not good practise to commit and push up an actual password, so I created an environment variable in the .env file in which the file type is in the .gitignore. In order to get the actual password, the repo user has to contact the repo owner to get the password, so that the repo user can add it to the environment variable. 
+Getting the Hudl site terms test and Hudl privacy policy test to work with the Page Object Model.
 
 
 
