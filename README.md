@@ -78,12 +78,34 @@ Now you are ready to run the tests using the specified Node.js version.
 
 Note:  If you have previous ran `npm install` using the wrong version, delete your `node_modules` folder, reset the repository to the state of main, then run `npm install` with the correct node version selected.
 
+Create a .env file in the repo and add the following environment variable:
+
+```bash
+ PASSWORD=
+```
+
+To get the password, email the repo owner.
 ## Running the tests
 
-To run the tests execuate the below in the terminal.
+To run the tests execute the below in the terminal.
 
 ```bash
  npm run wdio
 ```
 
 Test results will appear in the terminal via the "spec" Reporter
+
+## How I would improve this framework 
+
+I would add a html reporter to make test results more clear.
+
+I would enable the tests to run in the CI.
+
+## Known issues or workarounds you have used
+
+There with the Hudl site terms test and Hudl privacy policy test when implementing the Page Object model where it was not able to recognise the new tabs using switch window when the test click on those links. Adding the locators within the spec file resolved that issue.
+
+For the Succesful login test, it was not good practise to commit and push up an actual password, so I created an environment variable in the .env file in which the file type is in the .gitignore. 
+
+
+
