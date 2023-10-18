@@ -1,4 +1,6 @@
-# hudl-take-home-test
+# Hudl Take Home Test
+
+This repo contains tests for the login functionality of the Hudl website.
 
 ## Prerequisites
 
@@ -75,3 +77,13 @@ The output should show v16.20.2 for Node.js and an appropriate version for npm.
 Now you are ready to run the tests using the specified Node.js version.
 
 Note:  If you have previous ran `npm install` using the wrong version, delete your `node_modules` folder, reset the repository to the state of main, then run `npm install` with the correct node version selected.
+
+## Running the tests
+
+To run the tests execuate the below in the terminal.
+
+```bash
+ npm run wdio
+```
+
+Test results will appear in the terminal via the "spec" Reporter
