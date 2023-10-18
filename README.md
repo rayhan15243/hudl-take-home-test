@@ -93,9 +93,7 @@ To run the tests execute the below in the terminal.
  npm run wdio
 ```
 
-Test results will appear in the terminal via the "spec" Reporter as shown in the example below
-
-![Alt text](image.png)
+Test results will appear in the terminal via the "spec" Reporter.
 
 ## How I would improve this framework 
 
