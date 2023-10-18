@@ -75,7 +75,7 @@ describe('Hudl Login Functionality Test', () => {
         await expect(browser).toHaveTitle('Hudl Privacy Policy')
     })
 
-    it('Succesful login test', async () => {
+    it('Login with actual credentials test', async () => {
         await Login.enterEmailAddress("rayhan15243@gmail.com")
         await Login.enterPassword(process.env.PASSWORD)
         await Login.clickContinueButton()

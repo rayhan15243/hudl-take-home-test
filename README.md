@@ -105,7 +105,7 @@ I would enable the tests to run in the CI.
 
 There were issues with the Hudl site terms test and Hudl privacy policy test when implementing the Page Object model where it was not able to recognise the new tabs using switch window when the test click on those links. Adding the locators within the spec file resolved that issue.
 
-For the Succesful login test, it was not good practise to commit and push up an actual password, so I created an environment variable in the .env file in which the file type is in the .gitignore. In order to get the actual password, the repo user has to contact the repo owner to get the password, so that the repo user can add it to the environment variable. 
+For the Login with actual credentials test, it was not good practise to commit and push up an actual password, so I created an environment variable in the .env file in which the file type is in the .gitignore. In order to get the actual password, the repo user has to contact the repo owner to get the password, so that the repo user can add it to the environment variable. 
 
 
 
