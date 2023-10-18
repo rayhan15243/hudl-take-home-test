@@ -78,13 +78,15 @@ Now you are ready to run the tests using the specified Node.js version.
 
 Note:  If you have previous ran `npm install` using the wrong version, delete your `node_modules` folder, reset the repository to the state of main, then run `npm install` with the correct node version selected.
 
+### Set Environment variables
+
 Create a .env file in the repo and add the following environment variable:
 
 ```bash
  PASSWORD=
 ```
 
-To get the password, email the repo owner.
+To get the password, email the repo owner. This password is required for the Login with actual credentials test.
 ## Running the tests
 
 To run the tests execute the below in the terminal.
