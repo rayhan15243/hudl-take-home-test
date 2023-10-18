@@ -77,7 +77,7 @@ describe('Hudl Login Functionality Test', () => {
 
     it('Login with actual credentials test', async () => {
         await Login.enterEmailAddress("rayhan15243@gmail.com")
-        await Login.enterPassword(process.env.PASSWORD)
+        await Login.enterPassword(process.env.PASSWORD) // Environment variable from .env file
         await Login.clickContinueButton()
         await expect(browser).toHaveTitle('Home - Hudl')
     })
